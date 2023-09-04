@@ -1,0 +1,14 @@
+FROM --platform=linux/x86_64 python:3.7
+# If you are NOT in M1 processor, uncomment the following line
+# FROM python:3.7
+
+RUN mkdir -p /app/app
+RUN chmod -R a+rwx /app/app
+
+COPY . /app
+
+RUN pip install -r /app/requirements.txt
+
+# If you are NOT in M1 processor, uncomment the following line
+# RUN pip uninstall tensorflow -y
+# RUN pip install tensorflow
